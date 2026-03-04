@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { ChevronsDown, Github, Linkedin, AtSign, MoveRight } from 'lucide-react';
 
 const ROLES = [
-  'Software Developer',
-  'React Developer',
-  'Java & C# Engineer',
-  'CS Graduate',
+  'Full-Stack Developer',
+  'Frontend Developer',
+  'Backend Developer',
+  'React & Java Engineer',
 ];
 
 export default function Hero() {
@@ -83,8 +83,8 @@ export default function Hero() {
 
         {/* Bio */}
         <p className="text-metal-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-          Motivated CS graduate, analytical and passionate about software development.
-          Skilled in Java, C#, Python, JavaScript and React — known for quick learning
+          CS graduate seeking roles in Full-Stack, Frontend & Backend development.
+          Skilled in React, Java, C#, Python and JavaScript — known for quick learning
           and a team-first attitude.
         </p>
 

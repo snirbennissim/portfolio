@@ -33,7 +33,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="font-mono text-[11px] text-metal-500 leading-relaxed max-w-xs">
-              CS Graduate & Software Developer building web apps and games with clean code and a team-first attitude.
+              Full-Stack, Frontend & Backend Developer — building web apps and games with clean code and a team-first attitude.
             </p>
           </div>
 

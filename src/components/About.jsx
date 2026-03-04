@@ -61,7 +61,7 @@ export default function About() {
                   <div className="text-center">
                     <div className="text-metal-50 font-bold text-lg mb-0.5">Snir Ben Nissim</div>
                     <div className="font-mono text-xs text-blue-DEFAULT tracking-widest mb-2">
-                      CS SOFTWARE DEVELOPER
+                      FULLSTACK / FRONTEND / BACKEND
                     </div>
                     <div className="flex items-center justify-center gap-1.5 text-metal-500 text-xs">
                       <Crosshair size={10} />
