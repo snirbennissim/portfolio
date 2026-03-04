@@ -32,7 +32,7 @@ export function useGitHubProjects() {
 
         // Filter out forks, sort by stars then updated date
         const filtered = data
-          .filter((repo) => !repo.fork && repo.name !== USERNAME)
+          .filter((repo) => !repo.fork && repo.name !== USERNAME && !['kaplat-ex1-snir-ben-nissim', 'fabricated'].includes(repo.name))
           .sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at))
           .slice(0, 9);
 

@@ -2,7 +2,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Crosshair, Cpu, Layers, Network, Github, ArrowUpRight, Radar } from 'lucide-react';
 
 const stats = [
-  { icon: Cpu,       label: 'B.Sc Computer Science', value: '2024',  sub: 'Tel Aviv-Yaffo College' },
+  { icon: Cpu,       label: 'B.Sc Computer Science', value: '2024',  sub: 'The Academic College of Tel Aviv-Yaffo' },
   { icon: Layers,    label: 'Featured Projects',     value: '2+',    sub: 'Web & Game Dev' },
   { icon: Radar,     label: 'Military Service',      value: '3 YRS', sub: 'IDF Ordnance Corps' },
   { icon: Network,   label: 'Languages',             value: '2',     sub: 'Hebrew · English' },
