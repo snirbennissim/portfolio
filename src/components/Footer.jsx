@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Download, Terminal } from 'lucide-react';
+import { Github, Linkedin, AtSign, HardDrive, Terminal } from 'lucide-react';
 
 const navLinks = [
   { label: 'ABOUT',    href: '#about' },
@@ -10,7 +10,7 @@ const navLinks = [
 const socials = [
   { icon: Github,   href: 'https://github.com/snirbennissim',        label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/snir-ben-nissim', label: 'LinkedIn' },
-  { icon: Mail,     href: 'mailto:snir.ben.n@gmail.com',             label: 'Email' },
+  { icon: AtSign,   href: 'mailto:snir.ben.n@gmail.com',             label: 'Email' },
 ];
 
 export default function Footer() {
@@ -64,7 +64,7 @@ export default function Footer() {
                 download
                 className="btn-blue inline-flex items-center gap-2 px-4 py-2 rounded text-xs"
               >
-                <Download size={12} />
+                <HardDrive size={12} />
                 <span className="font-mono tracking-widest">DOWNLOAD RESUME</span>
               </a>
               <div className="flex gap-2 pt-1">

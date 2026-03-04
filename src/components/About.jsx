@@ -1,11 +1,11 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { MapPin, GraduationCap, Briefcase, Globe, Github, ExternalLink, Shield } from 'lucide-react';
+import { Crosshair, Cpu, Layers, Network, Github, ArrowUpRight, Radar } from 'lucide-react';
 
 const stats = [
-  { icon: GraduationCap, label: 'B.Sc Computer Science', value: '2024', sub: 'Tel Aviv-Yaffo College' },
-  { icon: Briefcase,     label: 'Featured Projects',     value: '2+',   sub: 'Web & Game Dev' },
-  { icon: Shield,        label: 'Military Service',      value: '3 YRS', sub: 'IDF Ordnance Corps' },
-  { icon: Globe,         label: 'Languages',             value: '2',    sub: 'Hebrew · English' },
+  { icon: Cpu,       label: 'B.Sc Computer Science', value: '2024',  sub: 'Tel Aviv-Yaffo College' },
+  { icon: Layers,    label: 'Featured Projects',     value: '2+',    sub: 'Web & Game Dev' },
+  { icon: Radar,     label: 'Military Service',      value: '3 YRS', sub: 'IDF Ordnance Corps' },
+  { icon: Network,   label: 'Languages',             value: '2',     sub: 'Hebrew · English' },
 ];
 
 function Screw() {
@@ -64,7 +64,7 @@ export default function About() {
                       CS SOFTWARE DEVELOPER
                     </div>
                     <div className="flex items-center justify-center gap-1.5 text-metal-500 text-xs">
-                      <MapPin size={10} />
+                      <Crosshair size={10} />
                       <span className="font-mono text-[10px]">Rishon LeZiyyon, IL</span>
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function About() {
               >
                 <Github size={13} />
                 <span className="font-mono tracking-wider">GITHUB PROFILE</span>
-                <ExternalLink size={10} className="text-metal-500" />
+                <ArrowUpRight size={10} className="text-metal-500" />
               </a>
               <a
                 href="/portfolio/resume.pdf"

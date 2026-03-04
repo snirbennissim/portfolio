@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Download, Terminal } from 'lucide-react';
+import { Menu, X, HardDrive, Terminal } from 'lucide-react';
 
 const navLinks = [
   { label: 'ABOUT',    href: '#about' },
@@ -81,7 +81,7 @@ export default function Navbar() {
               download
               className="btn-blue flex items-center gap-1.5 px-4 py-1.5 rounded text-xs"
             >
-              <Download size={12} />
+              <HardDrive size={12} />
               RESUME
             </a>
           </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
               download
               className="btn-blue flex items-center justify-center gap-2 w-full py-2 rounded text-xs mt-3"
             >
-              <Download size={12} />
+              <HardDrive size={12} />
               DOWNLOAD RESUME
             </a>
           </div>

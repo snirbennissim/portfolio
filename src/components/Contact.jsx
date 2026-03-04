@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Mail, Github, Linkedin, Phone, Send, CheckCircle, MapPin, Terminal } from 'lucide-react';
+import { AtSign, Github, Linkedin, PhoneCall, Radio, CircleCheck, Crosshair, Terminal } from 'lucide-react';
 
 const socials = [
-  { icon: Github,   label: 'GITHUB',   cmd: 'open github.com/snirbennissim',        href: 'https://github.com/snirbennissim' },
-  { icon: Linkedin, label: 'LINKEDIN', cmd: 'open linkedin.com/in/snir-ben-nissim', href: 'https://linkedin.com/in/snir-ben-nissim' },
-  { icon: Mail,     label: 'EMAIL',    cmd: 'mailto snir.ben.n@gmail.com',           href: 'mailto:snir.ben.n@gmail.com' },
-  { icon: Phone,    label: 'PHONE',    cmd: 'call +972-54-327-8282',                 href: 'tel:+972543278282' },
+  { icon: Github,    label: 'GITHUB',   cmd: 'open github.com/snirbennissim',        href: 'https://github.com/snirbennissim' },
+  { icon: Linkedin,  label: 'LINKEDIN', cmd: 'open linkedin.com/in/snir-ben-nissim', href: 'https://linkedin.com/in/snir-ben-nissim' },
+  { icon: AtSign,    label: 'EMAIL',    cmd: 'mailto snir.ben.n@gmail.com',           href: 'mailto:snir.ben.n@gmail.com' },
+  { icon: PhoneCall, label: 'PHONE',    cmd: 'call +972-54-327-8282',                 href: 'tel:+972543278282' },
 ];
 
 export default function Contact() {
@@ -66,7 +66,7 @@ export default function Contact() {
           <div className="space-y-5">
             {/* Location line */}
             <div className="flex items-center gap-2 font-mono text-xs text-metal-400">
-              <MapPin size={12} className="text-blue-DEFAULT flex-shrink-0" />
+              <Crosshair size={12} className="text-blue-DEFAULT flex-shrink-0" />
               <span>Rishon LeZiyyon, Israel — Open to Remote & Relocation</span>
             </div>
 
@@ -127,7 +127,7 @@ export default function Contact() {
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-16 gap-4 text-center px-8">
                 <div className="w-14 h-14 rounded btn-metal flex items-center justify-center">
-                  <CheckCircle size={24} className="text-green-400" />
+                  <CircleCheck size={24} className="text-green-400" />
                 </div>
                 <p className="font-mono text-sm text-green-400 tracking-wider">TRANSMISSION COMPLETE</p>
                 <p className="text-metal-400 text-xs">Thanks for reaching out. I&apos;ll respond soon.</p>
@@ -187,7 +187,7 @@ export default function Contact() {
                   type="submit"
                   className="btn-blue w-full flex items-center justify-center gap-2 py-2.5 rounded text-xs"
                 >
-                  <Send size={13} />
+                  <Radio size={13} />
                   <span className="font-mono tracking-widest">&#62; TRANSMIT MESSAGE</span>
                 </button>
               </form>

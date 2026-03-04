@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, ChevronRight } from 'lucide-react';
+import { ChevronsDown, Github, Linkedin, AtSign, MoveRight } from 'lucide-react';
 
 const ROLES = [
   'Software Developer',
@@ -94,14 +94,14 @@ export default function Hero() {
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-blue flex items-center gap-2 px-6 py-2.5 rounded text-sm"
           >
-            <ChevronRight size={15} />
+            <MoveRight size={15} />
             VIEW PROJECTS
           </button>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-metal flex items-center gap-2 px-6 py-2.5 rounded text-sm text-metal-200 hover:text-metal-50"
           >
-            <Mail size={15} />
+            <AtSign size={15} />
             GET IN TOUCH
           </button>
         </div>
@@ -111,7 +111,7 @@ export default function Hero() {
           {[
             { icon: Github,   href: 'https://github.com/snirbennissim',          label: 'GitHub' },
             { icon: Linkedin, href: 'https://linkedin.com/in/snir-ben-nissim',   label: 'LinkedIn' },
-            { icon: Mail,     href: 'mailto:snir.ben.n@gmail.com',               label: 'Email' },
+            { icon: AtSign,   href: 'mailto:snir.ben.n@gmail.com',               label: 'Email' },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
@@ -132,7 +132,7 @@ export default function Hero() {
           className="text-metal-600 hover:text-blue-DEFAULT transition-colors animate-float"
           aria-label="Scroll down"
         >
-          <ArrowDown size={20} />
+          <ChevronsDown size={20} />
         </button>
       </div>
 

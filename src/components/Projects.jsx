@@ -1,6 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useGitHubProjects } from '../hooks/useGitHubProjects';
-import { Star, GitFork, ExternalLink, Github, Clock, AlertCircle } from 'lucide-react';
+import { Zap, GitFork, ArrowUpRight, Github, Gauge, AlertTriangle } from 'lucide-react';
 
 const LANG_COLORS = {
   JavaScript: '#F7DF1E', TypeScript: '#3178C6', Python: '#3776AB',
@@ -33,8 +33,19 @@ function ProjectCard({ repo, index }) {
   });
   const moduleId = `MOD-${String(index + 1).padStart(3, '0')}`;
 
+  const blueprintBg = {
+    backgroundImage: [
+      'linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px)',
+      'linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px)',
+      'linear-gradient(rgba(0,212,255,0.015) 1px, transparent 1px)',
+      'linear-gradient(90deg, rgba(0,212,255,0.015) 1px, transparent 1px)',
+      'linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.15) 100%)',
+    ].join(', '),
+    backgroundSize: '20px 20px, 20px 20px, 80px 80px, 80px 80px, 100% 100%',
+  };
+
   return (
-    <div className="module-card with-screws rounded-lg flex flex-col group">
+    <div className="module-card with-screws rounded-lg flex flex-col group" style={blueprintBg}>
       {/* Bottom screws */}
       <span className="absolute bottom-2 left-2 w-[6px] h-[6px] rounded-full bg-gradient-to-br from-metal-500 to-metal-800 border border-white/10" />
       <span className="absolute bottom-2 right-2 w-[6px] h-[6px] rounded-full bg-gradient-to-br from-metal-500 to-metal-800 border border-white/10" />
@@ -73,7 +84,7 @@ function ProjectCard({ repo, index }) {
                 aria-label="Live demo"
                 className="text-metal-500 hover:text-blue-DEFAULT transition-colors"
               >
-                <ExternalLink size={14} />
+                <ArrowUpRight size={14} />
               </a>
             )}
           </div>
@@ -107,7 +118,7 @@ function ProjectCard({ repo, index }) {
             </span>
           )}
           <span className="flex items-center gap-1">
-            <Star size={10} />
+            <Zap size={10} />
             {repo.stargazers_count}
           </span>
           <span className="flex items-center gap-1">
@@ -115,7 +126,7 @@ function ProjectCard({ repo, index }) {
             {repo.forks_count}
           </span>
           <span className="flex items-center gap-1 ml-auto">
-            <Clock size={10} />
+            <Gauge size={10} />
             {updatedAt}
           </span>
         </div>
@@ -148,7 +159,7 @@ export default function Projects() {
         {/* Error */}
         {error && (
           <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 rounded p-4 mb-8 text-red-400 text-xs font-mono max-w-md">
-            <AlertCircle size={14} className="flex-shrink-0" />
+            <AlertTriangle size={14} className="flex-shrink-0" />
             ERR: {error}
           </div>
         )}
@@ -171,7 +182,7 @@ export default function Projects() {
             >
               <Github size={14} />
               <span className="font-mono tracking-widest">VIEW ALL REPOSITORIES</span>
-              <ExternalLink size={11} className="text-metal-500" />
+              <ArrowUpRight size={11} className="text-metal-500" />
             </a>
           </div>
         )}
