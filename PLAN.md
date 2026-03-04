@@ -7,12 +7,57 @@ GitHub: snirbennissim
 | Layer | Choice | Reason |
 |-------|--------|--------|
 | Build tool | Vite | Fast HMR, minimal config |
-| Framework | React 18 | Component model, ecosystem |
+| Framework | React 19 | Component model, ecosystem |
 | Language | JavaScript | As specified |
 | Styling | Tailwind CSS v3 | Utility-first, responsive |
+| Fonts | Inter + JetBrains Mono | Sans headings + mono technical |
 | Icons | lucide-react | Lightweight, consistent |
 | Data | GitHub REST API v3 | Live project data |
 | Deployment | GitHub Pages + Vercel | Free, fast, CI/CD-friendly |
+
+## Design Theme — Metallic Industrial Workspace (v2)
+
+### Color Palette
+| Token | Hex | Usage |
+|-------|-----|-------|
+| metal-950 | #090909 | Deepest background |
+| metal-900 | #0f0f0f | Primary section bg |
+| metal-800 | #161616 | Card surface |
+| metal-700 | #1f1f1f | Borders, dividers |
+| metal-500 | #383838 | Inactive elements |
+| metal-300 | #787878 | Secondary text |
+| metal-100 | #cccccc | Primary text |
+| blue (accent) | #00d4ff | Electric blue — highlights only |
+| blue-dim | #0099bb | Hover/secondary accent |
+
+### Typography
+- **Headings**: Inter, font-black, tight tracking
+- **Technical labels / metadata / code**: JetBrains Mono
+- **Mono label pattern**: `// SECTION 0N — LABEL` in blue, small caps
+
+### CSS Utilities (index.css)
+- `.metal-surface` — brushed gradient (light top → dark bottom)
+- `.bevel` — 4-sided bevel (white top-left, black bottom-right)
+- `.module-card` — industrial component card with hover blue-glow
+- `.with-screws` — corner screws via ::before/::after pseudo-elements
+- `.btn-blue` — electric blue mechanical button with inner highlight
+- `.btn-metal` — dark metal button with bevel + pressed state
+- `.terminal-input` — inset-shadow dark input with mono font
+- `.section-divider` — subtle horizontal gradient separator
+- `.mono-label` — section prefix label in mono + blue
+- `.blueprint-bg` (body) — radial dot grid background pattern
+- `.blue-glow`, `.blue-glow-hover` — electric glow effects
+
+### Components
+| Component | Design Notes |
+|-----------|-------------|
+| Navbar | Metal control panel bar, `// SECTION` mono links, SBN.DEV badge, ONLINE status |
+| Hero | Blueprint grid, scan-line animation, terminal prompt, blue gradient name |
+| About | ID card module with corner screws + spec rows, beveled stats panels |
+| TechStack | Toggle-switch filter buttons, module cards with index numbers |
+| Projects | Hardware module cards with MOD-NNN IDs + ACTIVE status badge |
+| Contact | Terminal panel with `$ cmd` social links, inset-shadow form inputs |
+| Footer | Dark metal panel, system status bar, mono nav |
 
 ---
 

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Download, Code2 } from 'lucide-react';
+import { Menu, X, Download, Terminal } from 'lucide-react';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Tech Stack', href: '#tech' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'ABOUT',    href: '#about' },
+  { label: 'TECH',     href: '#tech' },
+  { label: 'PROJECTS', href: '#projects' },
+  { label: 'CONTACT',  href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -20,87 +20,104 @@ export default function Navbar() {
 
   const handleNav = (href) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass border-b border-[#1e293b] shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? 'glass bevel-light shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-14">
+
+          {/* Logo — metal badge */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2.5 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center group-hover:bg-accent-light transition-colors">
-              <Code2 size={16} className="text-white" />
+            <div className="btn-metal w-8 h-8 rounded flex items-center justify-center">
+              <Terminal size={14} className="text-blue-DEFAULT" />
             </div>
-            <span className="font-bold text-white text-sm tracking-wide">
-              snirbennissim
+            <span className="font-mono text-xs font-semibold text-metal-100 tracking-widest group-hover:text-blue-DEFAULT transition-colors">
+              SBN.DEV
+            </span>
+            <span className="hidden sm:block w-px h-4 bg-metal-600" />
+            <span className="hidden sm:block font-mono text-[10px] text-metal-400 tracking-wider">
+              v1.0
             </span>
           </button>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNav(link.href)}
-                className="text-slate-400 hover:text-white text-sm font-medium transition-colors hover:text-accent-light"
+                className="group flex items-center gap-1.5 px-4 py-1.5 rounded transition-all duration-150"
               >
-                {link.label}
+                <span className="font-mono text-[10px] text-metal-600 group-hover:text-blue-dim transition-colors">
+                  //
+                </span>
+                <span className="font-mono text-[11px] font-medium text-metal-300 group-hover:text-metal-50 tracking-widest transition-colors">
+                  {link.label}
+                </span>
               </button>
             ))}
           </div>
 
           {/* Resume CTA */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-3">
+            {/* Status dot */}
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              <span className="font-mono text-[10px] text-metal-400">ONLINE</span>
+            </div>
             <a
               href="/portfolio/resume.pdf"
               download
-              className="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
+              className="btn-blue flex items-center gap-1.5 px-4 py-1.5 rounded text-xs"
             >
-              <Download size={14} />
-              Resume
+              <Download size={12} />
+              RESUME
             </a>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobile burger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-slate-400 hover:text-white transition-colors p-1"
+            className="md:hidden btn-metal w-8 h-8 rounded flex items-center justify-center text-metal-300"
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            {menuOpen ? <X size={16} /> : <Menu size={16} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile drawer */}
       {menuOpen && (
-        <div className="md:hidden glass border-t border-[#1e293b]">
-          <div className="px-4 py-4 space-y-3">
+        <div className="md:hidden glass border-t border-metal-700/50">
+          <div className="max-w-6xl mx-auto px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNav(link.href)}
-                className="block w-full text-left text-slate-300 hover:text-white py-2 text-sm font-medium transition-colors"
+                className="flex items-center gap-2 w-full text-left px-3 py-2.5 rounded transition-colors hover:bg-metal-800"
               >
-                {link.label}
+                <span className="font-mono text-[10px] text-blue-dim">//</span>
+                <span className="font-mono text-xs text-metal-200 tracking-widest">{link.label}</span>
               </button>
             ))}
             <a
               href="/portfolio/resume.pdf"
               download
-              className="flex items-center gap-2 bg-accent text-white text-sm font-medium px-4 py-2 rounded-lg w-full justify-center mt-2"
+              className="btn-blue flex items-center justify-center gap-2 w-full py-2 rounded text-xs mt-3"
             >
-              <Download size={14} />
-              Download Resume
+              <Download size={12} />
+              DOWNLOAD RESUME
             </a>
           </div>
         </div>

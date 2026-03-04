@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, ChevronRight } from 'lucide-react';
 
 const ROLES = [
   'Software Developer',
@@ -16,96 +16,102 @@ export default function Hero() {
   useEffect(() => {
     const current = ROLES[roleIndex];
     let timeout;
-
     if (!deleting && displayed.length < current.length) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80);
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 70);
     } else if (!deleting && displayed.length === current.length) {
-      timeout = setTimeout(() => setDeleting(true), 2000);
+      timeout = setTimeout(() => setDeleting(true), 2200);
     } else if (deleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 40);
+      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
     } else if (deleting && displayed.length === 0) {
       setDeleting(false);
       setRoleIndex((i) => (i + 1) % ROLES.length);
     }
-
     return () => clearTimeout(timeout);
   }, [displayed, deleting, roleIndex]);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-primary"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-metal-950"
     >
-      {/* Background gradient blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
-      </div>
-
-      {/* Grid overlay */}
+      {/* Blueprint grid overlay — slightly stronger in hero */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(#6366f1 1px, transparent 1px), linear-gradient(90deg, #6366f1 1px, transparent 1px)`,
+          backgroundImage:
+            'linear-gradient(rgba(0,212,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.4) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
 
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fade-in">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 text-accent-light text-sm font-medium mb-8">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          Available for opportunities
+      {/* Single electric blue ambient glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-DEFAULT/5 blur-[100px] pointer-events-none" />
+
+      {/* Scan-line animation */}
+      <div
+        className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-DEFAULT/40 to-transparent pointer-events-none animate-scan"
+        style={{ top: 0 }}
+      />
+
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fade-in pt-16">
+
+        {/* Terminal prompt bar */}
+        <div className="inline-flex items-center gap-2 module-card rounded px-4 py-2 mb-10 with-screws">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+          <span className="font-mono text-[11px] text-metal-400">
+            SBN@workspace:~${' '}
+          </span>
+          <span className="font-mono text-[11px] text-blue-DEFAULT">
+            ./portfolio --mode=interactive
+          </span>
         </div>
 
         {/* Name */}
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight">
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-metal-50 mb-3 tracking-tight leading-none">
           Snir{' '}
           <span className="gradient-text">Ben Nissim</span>
         </h1>
 
-        {/* Animated role */}
-        <div className="h-12 flex items-center justify-center mb-8">
-          <h2 className="text-xl sm:text-3xl font-semibold text-slate-300">
-            <span className="text-accent-light">&lt;</span>
-            <span className="mx-2">{displayed}</span>
-            <span className="inline-block w-0.5 h-6 bg-accent-light animate-pulse ml-0.5 align-middle" />
-            <span className="text-accent-light"> /&gt;</span>
-          </h2>
+        {/* Subtitle / role typewriter */}
+        <div className="h-10 flex items-center justify-center mb-8">
+          <p className="font-mono text-sm sm:text-base text-metal-400">
+            <span className="text-blue-DEFAULT">&#62;_</span>
+            <span className="ml-2 text-metal-200">{displayed}</span>
+            <span className="inline-block w-0.5 h-4 bg-blue-DEFAULT animate-pulse ml-0.5 align-middle" />
+          </p>
         </div>
 
         {/* Bio */}
-        <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
+        <p className="text-metal-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
           Motivated CS graduate, analytical and passionate about software development.
           Skilled in Java, C#, Python, JavaScript and React — known for quick learning
           and a team-first attitude.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
           <button
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            className="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-semibold px-7 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5"
+            className="btn-blue flex items-center gap-2 px-6 py-2.5 rounded text-sm"
           >
-            <ExternalLink size={18} />
-            View Projects
+            <ChevronRight size={15} />
+            VIEW PROJECTS
           </button>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="flex items-center gap-2 border border-[#1e293b] hover:border-accent/50 text-slate-300 hover:text-white font-semibold px-7 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 glass"
+            className="btn-metal flex items-center gap-2 px-6 py-2.5 rounded text-sm text-metal-200 hover:text-metal-50"
           >
-            <Mail size={18} />
-            Get In Touch
+            <Mail size={15} />
+            GET IN TOUCH
           </button>
         </div>
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-4 mb-16">
+        {/* Social icons */}
+        <div className="flex items-center justify-center gap-3 mb-14">
           {[
-            { icon: Github, href: 'https://github.com/snirbennissim', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://linkedin.com/in/snir-ben-nissim', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:snir.ben.n@gmail.com', label: 'Email' },
+            { icon: Github,   href: 'https://github.com/snirbennissim',          label: 'GitHub' },
+            { icon: Linkedin, href: 'https://linkedin.com/in/snir-ben-nissim',   label: 'LinkedIn' },
+            { icon: Mail,     href: 'mailto:snir.ben.n@gmail.com',               label: 'Email' },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
@@ -113,9 +119,9 @@ export default function Hero() {
               target={href.startsWith('http') ? '_blank' : undefined}
               rel="noopener noreferrer"
               aria-label={label}
-              className="w-11 h-11 rounded-xl border border-[#1e293b] flex items-center justify-center text-slate-400 hover:text-white hover:border-accent/50 hover:bg-accent/10 transition-all duration-200"
+              className="btn-metal w-9 h-9 rounded flex items-center justify-center text-metal-400 hover:text-blue-DEFAULT transition-colors"
             >
-              <Icon size={18} />
+              <Icon size={16} />
             </a>
           ))}
         </div>
@@ -123,12 +129,15 @@ export default function Hero() {
         {/* Scroll indicator */}
         <button
           onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          className="text-slate-600 hover:text-slate-400 transition-colors animate-float"
+          className="text-metal-600 hover:text-blue-DEFAULT transition-colors animate-float"
           aria-label="Scroll down"
         >
-          <ArrowDown size={24} />
+          <ArrowDown size={20} />
         </button>
       </div>
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 }

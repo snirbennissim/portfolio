@@ -1,51 +1,53 @@
-import { Github, Linkedin, Mail, Download, Heart, Code2 } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Terminal } from 'lucide-react';
 
-const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Tech Stack', href: '#tech' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
+const navLinks = [
+  { label: 'ABOUT',    href: '#about' },
+  { label: 'TECH',     href: '#tech' },
+  { label: 'PROJECTS', href: '#projects' },
+  { label: 'CONTACT',  href: '#contact' },
 ];
 
 const socials = [
-  { icon: Github, href: 'https://github.com/snirbennissim', label: 'GitHub' },
+  { icon: Github,   href: 'https://github.com/snirbennissim',        label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/snir-ben-nissim', label: 'LinkedIn' },
-  { icon: Mail, href: 'mailto:snir.ben.n@gmail.com', label: 'Email' },
+  { icon: Mail,     href: 'mailto:snir.ben.n@gmail.com',             label: 'Email' },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-bg-primary border-t border-[#1e293b]">
+    <footer className="bg-metal-950 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-                <Code2 size={16} className="text-white" />
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="btn-metal w-8 h-8 rounded flex items-center justify-center">
+                <Terminal size={13} className="text-blue-DEFAULT" />
               </div>
-              <span className="font-bold text-white">snirbennissim</span>
+              <div>
+                <div className="font-mono text-xs font-bold text-metal-100 tracking-widest">SBN.DEV</div>
+                <div className="font-mono text-[9px] text-metal-600 tracking-widest">v1.0 — PORTFOLIO</div>
+              </div>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+            <p className="font-mono text-[11px] text-metal-500 leading-relaxed max-w-xs">
               CS Graduate & Software Developer building web apps and games with clean code and a team-first attitude.
             </p>
           </div>
 
-          {/* Nav links */}
+          {/* Navigation */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Navigation</h4>
+            <p className="mono-label mb-4">// NAVIGATION</p>
             <ul className="space-y-2">
-              {links.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.label}>
                   <button
-                    onClick={() => {
-                      const el = document.querySelector(link.href);
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="text-slate-500 hover:text-slate-300 text-sm transition-colors"
+                    onClick={() => document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' })}
+                    className="flex items-center gap-2 group font-mono text-[11px] text-metal-500 hover:text-metal-200 transition-colors"
                   >
+                    <span className="text-metal-700 group-hover:text-blue-dim transition-colors">//</span>
                     {link.label}
                   </button>
                 </li>
@@ -53,19 +55,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Download & Socials */}
+          {/* Connect */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Connect</h4>
+            <p className="mono-label mb-4">// CONNECT</p>
             <div className="space-y-3">
               <a
                 href="/portfolio/resume.pdf"
                 download
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-medium px-4 py-2 rounded-lg transition-all"
+                className="btn-blue inline-flex items-center gap-2 px-4 py-2 rounded text-xs"
               >
-                <Download size={14} />
-                Download Resume
+                <Download size={12} />
+                <span className="font-mono tracking-widest">DOWNLOAD RESUME</span>
               </a>
-              <div className="flex gap-3 pt-1">
+              <div className="flex gap-2 pt-1">
                 {socials.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
@@ -73,9 +75,9 @@ export default function Footer() {
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="w-9 h-9 rounded-lg border border-[#1e293b] flex items-center justify-center text-slate-500 hover:text-white hover:border-accent/40 transition-all"
+                    className="btn-metal w-8 h-8 rounded flex items-center justify-center text-metal-400 hover:text-blue-DEFAULT transition-colors"
                   >
-                    <Icon size={15} />
+                    <Icon size={14} />
                   </a>
                 ))}
               </div>
@@ -83,14 +85,18 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-[#1e293b] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-600 text-sm">
-            © {year} Snir Ben Nissim. All rights reserved.
+        {/* Bottom system bar */}
+        <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="font-mono text-[10px] text-metal-600">
+            © {year} SNIR BEN NISSIM — ALL RIGHTS RESERVED
           </p>
-          <p className="text-slate-700 text-xs flex items-center gap-1">
-            Built with <Heart size={11} className="text-red-500 mx-0.5" /> using React + Tailwind
-          </p>
+          <div className="flex items-center gap-4 font-mono text-[10px] text-metal-700">
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              SYSTEM ONLINE
+            </span>
+            <span>BUILT WITH REACT + TAILWIND</span>
+          </div>
         </div>
       </div>
     </footer>
