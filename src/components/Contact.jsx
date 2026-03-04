@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Mail, Github, Linkedin, Twitter, Send, CheckCircle, MapPin, MessageSquare } from 'lucide-react';
+import { Mail, Github, Linkedin, Phone, Send, CheckCircle, MapPin, MessageSquare } from 'lucide-react';
 
 const socials = [
   {
@@ -20,6 +20,12 @@ const socials = [
     label: 'Email',
     value: 'snir.ben.n@gmail.com',
     href: 'mailto:snir.ben.n@gmail.com',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '054-3278282',
+    href: 'tel:+972543278282',
   },
 ];
 
