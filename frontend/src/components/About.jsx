@@ -144,7 +144,7 @@ export default function About() {
 
         {/* Stats row */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-16">
-          {stats.map(({ icon: Icon, label, value, sub }) => (
+          {stats.map(({ icon: Icon, label, value, sub }) => ( // eslint-disable-line no-unused-vars
             <div
               key={label}
               className="module-card with-screws rounded-lg p-5 text-center group"

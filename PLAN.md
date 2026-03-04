@@ -65,30 +65,37 @@ GitHub: snirbennissim
 
 ```
 Portfolio/
-├── public/
-│   ├── resume.pdf          # CV download
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx       # Fixed top nav with smooth scroll links
-│   │   ├── Hero.jsx         # Full-height intro with animated text
-│   │   ├── About.jsx        # Bio, photo placeholder, quick stats
-│   │   ├── TechStack.jsx    # Icon grid of technologies
-│   │   ├── Projects.jsx     # GitHub API fetched repo cards
-│   │   ├── Contact.jsx      # Contact form (mailto / EmailJS ready)
-│   │   └── Footer.jsx       # Links, resume download, copyright
-│   ├── hooks/
-│   │   └── useGitHubProjects.js  # Custom hook for GitHub API
-│   ├── data/
-│   │   └── techStack.js     # Tech list with icon names
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css            # Tailwind directives + custom CSS
-├── .env.example             # VITE_GITHUB_USERNAME placeholder
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-└── package.json
+├── frontend/                # React + Vite + Tailwind SPA
+│   ├── public/
+│   │   ├── resume.pdf          # CV download
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Hero.jsx
+│   │   │   ├── About.jsx
+│   │   │   ├── TechStack.jsx
+│   │   │   ├── Projects.jsx
+│   │   │   ├── Contact.jsx
+│   │   │   └── Footer.jsx
+│   │   ├── hooks/
+│   │   │   ├── useGitHubProjects.js
+│   │   │   └── useScrollAnimation.js
+│   │   ├── data/
+│   │   │   └── techStack.js
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── .env.example
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   └── package.json
+├── backend/                 # Placeholder Node/Express API
+│   ├── server.js
+│   └── package.json
+├── package.json             # Root scripts delegating to frontend/
+└── .gitignore
 ```
 
 ---
@@ -197,10 +204,11 @@ Optionally add `VITE_GITHUB_TOKEN` env var to raise limit to 5000/hr.
 | Phase | Tasks | Status |
 |-------|-------|--------|
 | 1 | PLAN.md + MEMORY.md | ✅ Done |
-| 2 | Vite init + Tailwind + deps | ⬜ Pending |
-| 3 | GitHub repo creation | ⬜ Pending |
-| 4 | Core components (Navbar, Hero, About) | ⬜ Pending |
-| 5 | TechStack + Projects (GitHub API) | ⬜ Pending |
-| 6 | Contact + Footer | ⬜ Pending |
-| 7 | Polish: animations, responsiveness | ⬜ Pending |
-| 8 | Deployment config + deploy | ⬜ Pending |
+| 2 | Vite init + Tailwind + deps | ✅ Done |
+| 3 | GitHub repo creation | ✅ Done |
+| 4 | Core components (Navbar, Hero, About) | ✅ Done |
+| 5 | TechStack + Projects (GitHub API) | ✅ Done |
+| 6 | Contact + Footer | ✅ Done |
+| 7 | Polish: Metallic Industrial Workspace UI + schematic icons | ✅ Done |
+| 8 | Deployment config + deploy (GitHub Pages) | ✅ Done |
+| 9 | Restructure: frontend/ + backend/ folders | ✅ Done |
