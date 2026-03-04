@@ -21,6 +21,7 @@ export const techStack = [
   { name: 'MySQL', category: 'Database', color: '#4479A1', icon: '🐬' },
   { name: 'Firebase', category: 'Database', color: '#FFCA28', icon: '🔥' },
   { name: 'Entity Framework', category: 'Database', color: '#512BD4', icon: '🗃️' },
+  { name: 'MongoDB', category: 'Database', color: '#47A248', icon: '🍃' },
   // Tools
   { name: 'Git', category: 'Tools', color: '#F05032', icon: '🔀' },
   { name: 'Cloudinary', category: 'Tools', color: '#3448C5', icon: '☁️' },
