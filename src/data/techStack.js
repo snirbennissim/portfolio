@@ -1,28 +1,29 @@
 export const techStack = [
-  // Frontend
-  { name: 'React', category: 'Frontend', color: '#61DAFB', icon: '⚛️' },
-  { name: 'JavaScript', category: 'Frontend', color: '#F7DF1E', icon: '🟨' },
-  { name: 'TypeScript', category: 'Frontend', color: '#3178C6', icon: '🔷' },
-  { name: 'HTML5', category: 'Frontend', color: '#E34F26', icon: '🌐' },
-  { name: 'CSS3', category: 'Frontend', color: '#1572B6', icon: '🎨' },
-  { name: 'Tailwind CSS', category: 'Frontend', color: '#06B6D4', icon: '💨' },
-  { name: 'Next.js', category: 'Frontend', color: '#ffffff', icon: '▲' },
-  // Backend
-  { name: 'Node.js', category: 'Backend', color: '#339933', icon: '🟢' },
-  { name: 'Python', category: 'Backend', color: '#3776AB', icon: '🐍' },
-  { name: 'Express', category: 'Backend', color: '#ffffff', icon: '⚡' },
-  { name: 'REST APIs', category: 'Backend', color: '#FF6C37', icon: '🔗' },
-  { name: 'GraphQL', category: 'Backend', color: '#E10098', icon: '◆' },
+  // Languages
+  { name: 'JavaScript', category: 'Languages', color: '#F7DF1E', icon: '🟨' },
+  { name: 'Java', category: 'Languages', color: '#b07219', icon: '☕' },
+  { name: 'C#', category: 'Languages', color: '#9B4F96', icon: '🔵' },
+  { name: 'C++', category: 'Languages', color: '#f34b7d', icon: '⚙️' },
+  { name: 'C', category: 'Languages', color: '#555555', icon: '🔩' },
+  { name: 'Python', category: 'Languages', color: '#3776AB', icon: '🐍' },
+  // Web
+  { name: 'React', category: 'Web', color: '#61DAFB', icon: '⚛️' },
+  { name: 'HTML5', category: 'Web', color: '#E34F26', icon: '🌐' },
+  { name: 'CSS3', category: 'Web', color: '#1572B6', icon: '🎨' },
+  { name: 'Tailwind CSS', category: 'Web', color: '#06B6D4', icon: '💨' },
+  { name: 'Bootstrap', category: 'Web', color: '#7952B3', icon: '🅱️' },
+  { name: 'ASP.NET Core', category: 'Web', color: '#512BD4', icon: '🔷' },
+  { name: 'Razor Pages', category: 'Web', color: '#512BD4', icon: '📄' },
+  // Game Dev
+  { name: 'Unity', category: 'Game Dev', color: '#FFFFFF', icon: '🎮' },
+  { name: 'FishNet', category: 'Game Dev', color: '#00BCD4', icon: '🐟' },
   // Database
-  { name: 'PostgreSQL', category: 'Database', color: '#4169E1', icon: '🐘' },
-  { name: 'MongoDB', category: 'Database', color: '#47A248', icon: '🍃' },
-  { name: 'Redis', category: 'Database', color: '#DC382D', icon: '🔴' },
-  // Tools & Cloud
+  { name: 'MySQL', category: 'Database', color: '#4479A1', icon: '🐬' },
+  { name: 'Firebase', category: 'Database', color: '#FFCA28', icon: '🔥' },
+  { name: 'Entity Framework', category: 'Database', color: '#512BD4', icon: '🗃️' },
+  // Tools
   { name: 'Git', category: 'Tools', color: '#F05032', icon: '🔀' },
-  { name: 'Docker', category: 'Tools', color: '#2496ED', icon: '🐳' },
-  { name: 'AWS', category: 'Cloud', color: '#FF9900', icon: '☁️' },
-  { name: 'Vercel', category: 'Cloud', color: '#ffffff', icon: '▲' },
-  { name: 'Linux', category: 'Tools', color: '#FCC624', icon: '🐧' },
+  { name: 'Cloudinary', category: 'Tools', color: '#3448C5', icon: '☁️' },
 ];
 
-export const categories = ['Frontend', 'Backend', 'Database', 'Tools', 'Cloud'];
+export const categories = ['Languages', 'Web', 'Game Dev', 'Database', 'Tools'];

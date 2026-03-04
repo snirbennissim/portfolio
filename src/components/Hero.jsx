@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
 const ROLES = [
-  'Full-Stack Engineer',
+  'Software Developer',
   'React Developer',
-  'Node.js Developer',
-  'Software Engineer',
+  'Java & C# Engineer',
+  'CS Graduate',
 ];
 
 export default function Hero() {
@@ -62,7 +62,7 @@ export default function Hero() {
         {/* Name */}
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight">
           Snir{' '}
-          <span className="gradient-text">Bennissim</span>
+          <span className="gradient-text">Ben Nissim</span>
         </h1>
 
         {/* Animated role */}
@@ -77,8 +77,9 @@ export default function Hero() {
 
         {/* Bio */}
         <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
-          I build scalable, performant web applications with clean code and
-          thoughtful UX. Passionate about solving real problems through technology.
+          Motivated CS graduate, analytical and passionate about software development.
+          Skilled in Java, C#, Python, JavaScript and React — known for quick learning
+          and a team-first attitude.
         </p>
 
         {/* CTA Buttons */}
@@ -103,8 +104,8 @@ export default function Hero() {
         <div className="flex items-center justify-center gap-4 mb-16">
           {[
             { icon: Github, href: 'https://github.com/snirbennissim', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://linkedin.com/in/snirbennissim', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:contact@snirbennissim.dev', label: 'Email' },
+            { icon: Linkedin, href: 'https://linkedin.com/in/snir-ben-nissim', label: 'LinkedIn' },
+            { icon: Mail, href: 'mailto:snir.ben.n@gmail.com', label: 'Email' },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}

@@ -12,14 +12,14 @@ const socials = [
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/snirbennissim',
-    href: 'https://linkedin.com/in/snirbennissim',
+    value: 'linkedin.com/in/snir-ben-nissim',
+    href: 'https://linkedin.com/in/snir-ben-nissim',
   },
   {
     icon: Mail,
     label: 'Email',
-    value: 'contact@snirbennissim.dev',
-    href: 'mailto:contact@snirbennissim.dev',
+    value: 'snir.ben.n@gmail.com',
+    href: 'mailto:snir.ben.n@gmail.com',
   },
 ];
 
@@ -56,7 +56,7 @@ export default function Contact() {
     // Mailto fallback
     const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
     const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
-    window.location.href = `mailto:contact@snirbennissim.dev?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:snir.ben.n@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
     setForm({ name: '', email: '', message: '' });
   };
@@ -89,15 +89,15 @@ export default function Contact() {
                 Let&apos;s build something great
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                I&apos;m currently open to full-time roles, freelance projects, and
-                consulting opportunities. Whether you have a startup idea or an
-                enterprise need — let&apos;s chat.
+                I&apos;m a CS graduate actively seeking a junior developer role. Whether
+                you have a project, a job opportunity, or just want to connect —
+                I&apos;d love to hear from you.
               </p>
             </div>
 
             <div className="flex items-center gap-2 text-slate-400 text-sm">
               <MapPin size={15} className="text-accent-light flex-shrink-0" />
-              <span>Based in Israel · Available for Remote & Relocation</span>
+              <span>Based in Rishon LeZiyyon, Israel · Open to Remote & Relocation</span>
             </div>
 
             {/* Social links */}

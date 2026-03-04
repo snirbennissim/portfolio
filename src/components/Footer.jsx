@@ -9,8 +9,8 @@ const links = [
 
 const socials = [
   { icon: Github, href: 'https://github.com/snirbennissim', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/snirbennissim', label: 'LinkedIn' },
-  { icon: Mail, href: 'mailto:contact@snirbennissim.dev', label: 'Email' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/snir-ben-nissim', label: 'LinkedIn' },
+  { icon: Mail, href: 'mailto:snir.ben.n@gmail.com', label: 'Email' },
 ];
 
 export default function Footer() {
@@ -29,7 +29,7 @@ export default function Footer() {
               <span className="font-bold text-white">snirbennissim</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-              Full-Stack Engineer building modern web products with clean code and great UX.
+              CS Graduate & Software Developer building web apps and games with clean code and a team-first attitude.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-[#1e293b] flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-slate-600 text-sm">
-            © {year} Snir Bennissim. All rights reserved.
+            © {year} Snir Ben Nissim. All rights reserved.
           </p>
           <p className="text-slate-700 text-xs flex items-center gap-1">
             Built with <Heart size={11} className="text-red-500 mx-0.5" /> using React + Tailwind

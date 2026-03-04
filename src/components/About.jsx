@@ -1,11 +1,11 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { MapPin, Calendar, Briefcase, Coffee, Github, ExternalLink } from 'lucide-react';
+import { MapPin, GraduationCap, Briefcase, Globe, Github, ExternalLink } from 'lucide-react';
 
 const stats = [
-  { icon: Calendar, label: 'Years of Experience', value: '3+' },
-  { icon: Briefcase, label: 'Projects Completed', value: '20+' },
-  { icon: Github, label: 'GitHub Repos', value: '30+' },
-  { icon: Coffee, label: 'Cups of Coffee', value: '∞' },
+  { icon: GraduationCap, label: 'B.Sc Computer Science', value: '2024' },
+  { icon: Briefcase, label: 'Featured Projects', value: '2+' },
+  { icon: Globe, label: 'Languages', value: '2' },
+  { icon: Github, label: 'GitHub Repos', value: '10+' },
 ];
 
 export default function About() {
@@ -38,11 +38,11 @@ export default function About() {
                     👨‍💻
                   </div>
                   <div className="text-center">
-                    <div className="text-white font-bold text-lg">Snir Bennissim</div>
-                    <div className="text-accent-light text-sm">Full-Stack Engineer</div>
+                    <div className="text-white font-bold text-lg">Snir Ben Nissim</div>
+                    <div className="text-accent-light text-sm">CS Software Developer</div>
                     <div className="flex items-center justify-center gap-1 text-slate-500 text-xs mt-1">
                       <MapPin size={11} />
-                      <span>Israel</span>
+                      <span>Rishon LeZiyyon, Israel</span>
                     </div>
                   </div>
                 </div>
@@ -59,20 +59,20 @@ export default function About() {
             <div className="space-y-4 text-slate-400 leading-relaxed">
               <p>
                 I&apos;m a{' '}
-                <span className="text-white font-medium">Full-Stack Software Engineer</span>{' '}
-                with a passion for building products that make a difference. I specialize in
-                modern JavaScript ecosystems — from crafting pixel-perfect React UIs to
-                designing robust Node.js backends.
+                <span className="text-white font-medium">Computer Science graduate</span>{' '}
+                from The Academic College of Tel Aviv-Yaffo (2020–2024), analytical and passionate
+                about software development. I&apos;m skilled in multiple programming languages
+                including Java, C#, C++, Python and JavaScript.
               </p>
               <p>
-                I thrive in environments where I can own features end-to-end, collaborate
-                with driven teams, and continuously level up my craft. Whether it&apos;s optimizing
-                a database query or polishing an animation — I care about{' '}
-                <span className="text-accent-light font-medium">the details</span>.
+                I&apos;m known for strong interpersonal skills, quick learning, and a{' '}
+                <span className="text-accent-light font-medium">team-first attitude</span>.
+                I&apos;ve built real-time web apps with React and multiplayer games with Unity,
+                and I thrive in fast-paced environments where quality and collaboration matter.
               </p>
               <p>
-                When I&apos;m not coding, you&apos;ll find me exploring open-source projects,
-                reading about distributed systems, or enjoying the outdoors.
+                Actively seeking an opportunity to grow as a developer and contribute to
+                innovative tech solutions. Hebrew native · English high proficiency.
               </p>
             </div>
 
