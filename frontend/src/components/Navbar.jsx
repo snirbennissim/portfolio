@@ -77,7 +77,7 @@ export default function Navbar() {
               <span className="font-mono text-[10px] text-metal-400">ONLINE</span>
             </div>
             <a
-              href="/portfolio/resume.pdf"
+              href="/resume.pdf"
               download
               className="btn-blue flex items-center gap-1.5 px-4 py-1.5 rounded text-xs"
             >
@@ -112,7 +112,7 @@ export default function Navbar() {
               </button>
             ))}
             <a
-              href="/portfolio/resume.pdf"
+              href="/resume.pdf"
               download
               className="btn-blue flex items-center justify-center gap-2 w-full py-2 rounded text-xs mt-3"
             >

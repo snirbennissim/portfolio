@@ -60,7 +60,7 @@ export default function Footer() {
             <p className="mono-label mb-4">// CONNECT</p>
             <div className="space-y-3">
               <a
-                href="/portfolio/resume.pdf"
+                href="/resume.pdf"
                 download
                 className="btn-blue inline-flex items-center gap-2 px-4 py-2 rounded text-xs"
               >
