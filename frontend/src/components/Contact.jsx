@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { AtSign, Github, Linkedin, PhoneCall, Radio, CircleCheck, Crosshair, Terminal } from 'lucide-react';
+
+const EMAILJS_SERVICE  = 'service_975pi3s';
+const EMAILJS_TEMPLATE = 'template_6i846iv';
+const EMAILJS_KEY      = 'bOGMqGzTGxalJqwDQ';
 
 const socials = [
   { icon: Github,    label: 'GITHUB',   cmd: 'open github.com/snirbennissim',        href: 'https://github.com/snirbennissim' },
@@ -11,15 +16,18 @@ const socials = [
 
 export default function Contact() {
   const ref = useScrollAnimation();
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const formRef = useRef();
+  const [form, setForm] = useState({ from_name: '', from_email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(null);
   const [errors, setErrors] = useState({});
 
   const validate = () => {
     const e = {};
-    if (!form.name.trim()) e.name = 'ERR: name_required';
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      e.email = 'ERR: invalid_email_address';
+    if (!form.from_name.trim()) e.from_name = 'ERR: name_required';
+    if (!form.from_email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.from_email)) {
+      e.from_email = 'ERR: invalid_email_address';
     }
     if (!form.message.trim() || form.message.trim().length < 10) {
       e.message = 'ERR: message_too_short (min 10 chars)';
@@ -32,15 +40,21 @@ export default function Contact() {
     if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: '' });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
-    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
-    const body    = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
-    window.location.href = `mailto:snir.ben.n@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setForm({ name: '', email: '', message: '' });
+    setSending(true);
+    setSendError(null);
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE, formRef.current, EMAILJS_KEY);
+      setSubmitted(true);
+      setForm({ from_name: '', from_email: '', message: '' });
+    } catch (err) {
+      setSendError('ERR: transmission_failed — please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -139,10 +153,10 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="p-5 space-y-4" noValidate>
+              <form ref={formRef} onSubmit={handleSubmit} className="p-5 space-y-4" noValidate>
                 {[
-                  { name: 'name',    type: 'text',  placeholder: '> your_full_name',      label: 'OPERATOR' },
-                  { name: 'email',   type: 'email', placeholder: '> your@email.com',       label: 'EMAIL' },
+                  { name: 'from_name',  type: 'text',  placeholder: '> your_full_name', label: 'OPERATOR' },
+                  { name: 'from_email', type: 'email', placeholder: '> your@email.com',  label: 'EMAIL' },
                 ].map(({ name, type, placeholder, label }) => (
                   <div key={name}>
                     <label className="block font-mono text-[10px] text-metal-500 tracking-widest mb-1.5">
@@ -183,12 +197,18 @@ export default function Contact() {
                   )}
                 </div>
 
+                {sendError && (
+                  <p className="font-mono text-[10px] text-red-400">{sendError}</p>
+                )}
                 <button
                   type="submit"
-                  className="btn-blue w-full flex items-center justify-center gap-2 py-2.5 rounded text-xs"
+                  disabled={sending}
+                  className="btn-blue w-full flex items-center justify-center gap-2 py-2.5 rounded text-xs disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Radio size={13} />
-                  <span className="font-mono tracking-widest">&#62; TRANSMIT MESSAGE</span>
+                  <span className="font-mono tracking-widest">
+                    {sending ? '> TRANSMITTING...' : '> TRANSMIT MESSAGE'}
+                  </span>
                 </button>
               </form>
             )}
